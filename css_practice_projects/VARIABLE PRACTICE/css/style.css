@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+/* || RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* || Variables */
+:root{
+  /* FONTS */
+  --FF: "Nunito", sans-serif;
+  --FS: 1.5rem;
+  --FS-XL: 3REM;
+  /* Colors */
+  --BGCOLOR: #1455b1;
+  --ALT-BGCOLOR: #1E293B;
+  --RADIAL-COLOR: whitesmoke;
+  --LIGHT-COLOR: whitesmoke;
+  --DARK-COLOR: #000;
+  /* General */
+  --PADDING: 0.5REM;
+  --SHADOW: 0 6px 5px -5px var(--DARK-COLOR);
+  --BORDER: 2px solid var(--DARK-COLOR);
+}
+
+/* || GENERAL STYLES */
+body {
+  font: var(--FS) var(--FF);
+  min-height: 100vh;
+
+  background-color: var(--BGCOLOR);
+  background-image: radial-gradient(var(--RADIAL-COLOR), var(--BGCOLOR));
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+nav,
+main,
+footer {
+  display: grid;
+  place-content: center;
+  grid-template-columns: 100%;
+  text-align: center;
+}
+
+header,
+footer {
+  position: sticky;
+  background-color: var(--ALT-BGCOLOR);
+  color: var(--RADIAL-COLOR);
+}
+
+header {
+  top: 0;
+}
+
+nav {
+  background-color: #fff;
+  color: var(--DARK-COLOR);
+  padding: var(--PADDING);
+  border-bottom: var(--BORDER);
+  box-shadow: var(--SHADOW);
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  bottom: 0;
+}
