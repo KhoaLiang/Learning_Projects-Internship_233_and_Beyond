@@ -161,3 +161,97 @@ a:active{
         scale: Y(1);
     }
 }
+
+/* FOOTER */
+.footer{
+    position: sticky;
+    bottom: 0;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--HEADER-COLOR);
+    padding: var(--PADDING-TB) var(--PADDING-SIDE);
+    text-align: center;
+}
+/* MAIN */
+.main{
+    padding: var(--PADDING-TB) var(--PADDING-SIDE);
+
+}
+.main__article{
+    scroll-margin-top: 6.5rem;
+    margin: var(--MARGIN);
+}
+.main__article:first-child{
+    margin-top: 1em;
+}
+.main__article:last-child{
+    min-height: calc(100vh - 20rem);
+}
+/* ABOUT */
+.about__trivia{
+    margin: var(--MARGIN);
+}
+.about__trivia-answer{
+    margin-top: 1em;
+}
+/* CONTACT */
+.contact__h2{
+    margin: 0;
+}
+.contact__fieldset{
+    border:none;
+}
+.contact_p{
+    margin: 1em 0;
+}
+.contact__label{
+    display: block;
+    font-weight: bold;
+}
+.contact__input, .contact__textarea{
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 15px;
+    border-width: 2px;
+}
+.contact_button{
+    padding: 0.5em;
+    border-radius: 15px;
+    background-color: var(--HIGHLIGHT-COLOR);
+    color: var(--HEADER-COLOR);
+}
+/* MENU */
+thead, tbody, tfoot, tr{
+    display: contents;
+}
+.menu_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "hd1 hd2 hd3"
+    "cr cr1 cr1p"
+    "cr cr2 cr2p"
+    "cr cr3 cr3p"
+    "sf sf1 sf1p"
+    "sf sf2 sf2p"
+    "sf sf3 sf3p"
+    "cs cs cs";
+    gap: 0.1em;
+    margin-bottom: 1em;
+}
+.menu_cr{
+    grid-area: cr;
+}
+.menu_sf{
+    grid-area: sf;
+}
+.menu_cs{
+    grid-area: cs;
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bold;
+}
+.menu_cr, .menu_sf{
+    display: grid;
+    color: var(--HIGHLIGHT-COLOR);
+    font-weight: bold;
+    height: 100%;
+    place-content: center;
+}
