@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>ROCK PAPER SCISSOR</p>
+    <button id="rock" value="rock" onclick="play(this.value)">ROCK</button>
+    <button id="paper" value="paper" onclick="play(this.value)">PAPER</button>
+    <button id="scissor" value="scissor" onclick="play(this.value)">SCISSOR</button>
+    <h1 id="yscore">Your score</h1>
+    <h1 id="cscore">Computer score</h1>
+    <h1 id="tie">Tie</h1>
+    <script>
+        let yscore = 0;
+        let cscore = 0;
+        let tie = 0;
+        let yscoreDisplay = document.getElementById("yscore");
+        let cscoreDisplay = document.getElementById("cscore");
+        let tieDisplay = document.getElementById("tie");
+        let rock = document.getElementById("rock").value;
+        let paper = document.getElementById("paper").value;
+        let scissor = document.getElementById("scissor").value;
+        function play(PlayerChoice){
+            let choices = [rock, paper, scissor];
+            let random = Math.floor(Math.random() * 3);
+            let ComputerChoice = choices[random];  
+            console.log("Player choice: ", PlayerChoice);  
+            console.log("Computer choice: ", ComputerChoice);  
+            if(PlayerChoice === ComputerChoice){
+                tie++;
+                tieDisplay.textContent = "Tie: " + tie;
+            }
+            else if((PlayerChoice === rock && ComputerChoice === scissor) || (PlayerChoice === paper && ComputerChoice === rock) || (PlayerChoice === scissor && ComputerChoice === paper)){
+                yscore++;
+                yscoreDisplay.textContent = "Your score: " + yscore;
+            }
+            else{
+                cscore++;
+                cscoreDisplay.textContent = "Computer score: " + cscore;
+            }
+        }
+    </script>
+</body>
+</html>
