@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Youtube Subscribe Button</h2>
+    <button>Subscribe</button>
+
+    <br>
+    <br>
+    <br>
+    <h1>Amazon shipping calculator</h1>
+    <p>Order under 40$ = +$10 shipping</p>
+    <p>Order over 40$ = free shipping</p>
+    <input type="number" id="order-value">
+    <button id="calculate" onclick="calculateShipping()">Calculate shipping</button>
+    <p id="order-price">Your order price is: </p>
+
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            if (button.textContent === 'Subscribe'){
+                button.textContent = 'Subscribed';
+            }else{
+                button.textContent = 'Subscribe';
+            }
+        })
+        function calculateShipping(){
+            const orderValue = document.getElementById('order-value').value;
+            const orderPrice = document.getElementById('order-price');
+            if(orderValue < 40){
+                orderPrice.textContent = `Your order price is: $` + (Number(orderValue) + 10);
+            }else{
+                orderPrice.textContent = `Your order price is: $` + (orderValue);
+            }
+        }
+    </script>
+</body>
+</html>
