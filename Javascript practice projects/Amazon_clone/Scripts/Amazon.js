@@ -1,3 +1,6 @@
+import {cart, AddToCart, UpdateCartQuantity} from '../data/cart.js';
+import {products} from '../data/products.js';
+
 // Check if the file is connected
 console.log("Amazon.js is connected");
 
@@ -32,7 +35,7 @@ products.forEach((products) => {
             </div>
 
             <div class="product-quantity-container">
-            <select>
+            <select class="js-quantity-selector-${products.id}">
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -48,7 +51,7 @@ products.forEach((products) => {
 
             <div class="product-spacer"></div>
 
-            <div class="added-to-cart">
+            <div class="added-to-cart js-added-to-cart-${products.id}">
             <img src="images/icons/checkmark.png">
             Added
             </div>
@@ -67,26 +70,8 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         //this is a great way to check if the button is clicked and if there are anybugs
         console.log('Add to cart button clicked');
         const productId = button.dataset.productId;
-
-        //Check matching item
-        let matchingItem;
-
-        cart.forEach((item) => {
-            if(item.productId === productId){
-                matchingItem = item;
-            }
-        });
-
-        if(matchingItem){
-            matchingItem.quantity += 1;
-        }
-        else{
-            cart.push({
-            productId: productId,
-            quantity: 1
-            });
-        }
-
+        AddToCart(productId);
+        UpdateCartQuantity();
         //check the current state of the cart
         console.log(cart);
     });
