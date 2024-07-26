@@ -1,6 +1,6 @@
 import {cart, DeleteItemFromCart, UpdateCartQuantityCheckout, UpdateCart, updateDeliveryOption} from '../../data/cart.js';
-import { products } from '../../data/products.js';
-import { deliveryOptions } from '../../data/deliveryOptions.js';
+import { products, getProduct } from '../../data/products.js';
+import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
 
 //external code from the internet
 hello();
@@ -16,22 +16,10 @@ export function renderOrderSummary(){
     cart.forEach((item) => {
         const productId = item.productId;
 
-        let matchingProduct;
-
-        products.forEach((product) => {
-            if(product.id === productId){
-                matchingProduct = product;
-            }
-        });
+        let matchingProduct = getProduct(productId);
         const deliveryOptionID = item.deliveryOptionsId;
 
-        let deliveryOption;
-
-        deliveryOptions.forEach((option) => {
-            if(option.id === deliveryOptionID){
-                deliveryOption = option;
-            }
-        });
+        let deliveryOption = getDeliveryOption(deliveryOptionID);
         const today = dayjs();
         const deliveryDate = today.add(deliveryOption.deliveryDate, 'days');
         const dateString = deliveryDate.format('dddd, MMMM D');
