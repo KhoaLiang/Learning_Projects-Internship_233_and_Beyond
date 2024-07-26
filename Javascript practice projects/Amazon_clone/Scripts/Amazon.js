@@ -4,6 +4,8 @@ import {products} from '../data/products.js';
 // Check if the file is connected
 console.log("Amazon.js is connected");
 
+//Update cart quantity in homepage
+UpdateCartQuantity(); 
 //Products import
 //There isn't any because the products array are in the Amazon.html file
 
