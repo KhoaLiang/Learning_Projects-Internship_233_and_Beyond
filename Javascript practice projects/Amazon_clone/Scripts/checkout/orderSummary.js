@@ -1,6 +1,7 @@
 import {cart, DeleteItemFromCart, UpdateCartQuantityCheckout, UpdateCart, updateDeliveryOption} from '../../data/cart.js';
 import { products, getProduct } from '../../data/products.js';
 import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js';
+import { renderPaymentSummary } from './paymentSummary.js';
 
 //external code from the internet
 hello();
@@ -104,6 +105,7 @@ export function renderOrderSummary(){
 
             const container =  document.querySelector(`.js-cart-item-container-${productId}`);
             container.remove();
+            renderPaymentSummary();
         });
     });
     document.querySelectorAll('.js-update-link').forEach((link) =>{
@@ -130,6 +132,7 @@ export function renderOrderSummary(){
             quantityUpdateLink.classList.remove('is-editing-quantity');
             quantityInput.style.display = 'none';
             link.style.display = 'none';
+            renderPaymentSummary();
         }); 
     });
     document.querySelectorAll('.js-delivery-option').forEach((element) =>{
@@ -137,6 +140,7 @@ export function renderOrderSummary(){
             const {productId, deliveryOptionId} = element.dataset;
             updateDeliveryOption(productId, deliveryOptionId);
             renderOrderSummary();
+            renderPaymentSummary();
         });
     });
 
