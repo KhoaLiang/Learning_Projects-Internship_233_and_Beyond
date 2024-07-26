@@ -109,3 +109,15 @@ export function DeleteItemFromCart(productId){
     UpdateCartQuantityCheckout();
     saveToStorage();
 }
+//Update delivery option
+export function updateDeliveryOption(productId, deliveryOptionsId){
+    let matchingItem;
+    cart.forEach((item) => {
+        if(item.productId === productId){
+            matchingItem = item;
+        }
+    });
+    matchingItem.deliveryOptionsId = deliveryOptionsId;
+
+    saveToStorage();
+}
