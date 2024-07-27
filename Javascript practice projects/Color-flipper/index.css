@@ -1,0 +1,19 @@
+/* Variables */
+:root{
+    /* Color */
+    --BGCOLOR: #f0f0f0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--BGCOLOR);
+    border-radius: 10px;
+}
