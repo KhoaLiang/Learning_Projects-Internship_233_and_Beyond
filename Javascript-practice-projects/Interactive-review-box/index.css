@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+.review-box{
+    width: 700px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* Original element */
+.main-heading {
+    position: relative; /* Ensure the element is positioned relative for the pseudo-element */
+}
+
+/* Pseudo-element for the border */
+.main-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%; /* Center the border */
+    width: 50%; /* Set the width to 50% */
+    border-bottom: 1px solid #000; /* Apply the border style */
+}
+
+.review-box-avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #000;
+}
+
+.custom-button {
+    width: 150px; /* Ensure the button does not take up the full width */
+    display: inline-block; /* Ensure the button is only as wide as its content */
+    margin: 0 auto;
+}
+.review-box-navigation{
+    margin: 0 auto;
+}
+i:hover{
+    cursor: pointer;
+}
+i:active {
+    border: solid 2px red;
+    border-radius: 20%;
+}
