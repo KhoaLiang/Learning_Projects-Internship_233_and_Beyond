@@ -1,13 +1,25 @@
+/* global $ */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import UseState_Example_Gallery from './components/useState_example.jsx';
+import UseState_Example2_Form from './components/useState_example2.jsx';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/UseState_Example_Gallery" element={<UseState_Example_Gallery />} />
+        <Route path="/UseState_Example2_Form" element={<UseState_Example2_Form />} />
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
