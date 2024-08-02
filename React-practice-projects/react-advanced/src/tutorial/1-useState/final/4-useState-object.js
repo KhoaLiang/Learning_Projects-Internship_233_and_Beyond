@@ -12,6 +12,7 @@ const UseStateObject = () => {
   // const [message,setMessage] = useState('random message')
 
   const changeMessage = () => {
+    //this said LEAVE the other values as they are and only change the message
     setPerson({ ...person, message: 'hello world' });
     // setMessage('hello world')
   };

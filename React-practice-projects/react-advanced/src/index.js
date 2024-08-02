@@ -6,19 +6,25 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UseState1 from './tutorial/1-useState/final/1-error-example';
 import UseState2 from './tutorial/1-useState/final/2-useState-basics';
 import UseState3 from './tutorial/1-useState/final/3-useState-array';
+import UseState4 from './tutorial/1-useState/final/4-useState-object';
+import UseState5 from './tutorial/1-useState/final/5-useState-counter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/useState1" element={<UseState1 />} />
-        <Route path="/useState2" element={<UseState2 />} />
-        <Route path="/useState3" element={<UseState3 />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>
+  <div className="container">
+    <React.StrictMode>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/useState1" element={<UseState1 />} />
+          <Route path="/useState2" element={<UseState2 />} />
+          <Route path="/useState3" element={<UseState3 />} />
+          <Route path="/useState4" element={<UseState4 />} />
+          <Route path="/useState5" element={<UseState5 />} />
+        </Routes>
+      </Router>
+    </React.StrictMode>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
