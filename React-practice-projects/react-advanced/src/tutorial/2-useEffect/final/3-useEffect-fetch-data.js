@@ -6,9 +6,17 @@ const url = 'https://api.github.com/users';
 
 const UseEffectFetchData = () => {
   const [users, setUsers] = useState([]);
-
+  //async function to fetch data
+  //in this case, we are fetching data from github users
+  //we are using useEffect to fetch data when the component mounts
+  //by using async await, we are waiting for the data to be fetched
+  //then we are setting the data to the state
   const getUsers = async () => {
+    //fetch data by using fetch api and store it in response
+    //we used await to wait for the response
     const response = await fetch(url);
+
+    //we used await to wait for the data to be converted to json
     const users = await response.json();
     setUsers(users);
     // console.log(users);

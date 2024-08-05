@@ -8,7 +8,12 @@ import UseState2 from './tutorial/1-useState/final/2-useState-basics';
 import UseState3 from './tutorial/1-useState/final/3-useState-array';
 import UseState4 from './tutorial/1-useState/final/4-useState-object';
 import UseState5 from './tutorial/1-useState/final/5-useState-counter';
-import UseEffect1 from './tutorial/2-useEffect/setup/1-useEffect-basics';
+import UseEffect1 from './tutorial/2-useEffect/final/1-useEffect-basics';
+import UseEffect2 from './tutorial/2-useEffect/final/2-useEffect-cleanup';
+import UseEffect3 from './tutorial/2-useEffect/final/3-useEffect-fetch-data';
+import Return1 from './tutorial/3-conditional-rendering/final/1-multiple-returns';
+import Return2 from './tutorial/3-conditional-rendering/final/2-short-circuit';
+import Return3 from './tutorial/3-conditional-rendering/final/3-show-hide';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +28,11 @@ root.render(
           <Route path="/useState4" element={<UseState4 />} />
           <Route path="/useState5" element={<UseState5 />} />
           <Route path="/useEffect1" element={<UseEffect1 />} />
+          <Route path="/useEffect2" element={<UseEffect2 />} />
+          <Route path="/useEffect3" element={<UseEffect3 />} />
+          <Route path="/return1" element={<Return1 />} />
+          <Route path="/return2" element={<Return2 />} />
+          <Route path="/return3" element={<Return3 />} />
         </Routes>
       </Router>
     </React.StrictMode>
