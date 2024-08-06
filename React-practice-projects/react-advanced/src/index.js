@@ -16,6 +16,10 @@ import Return2 from './tutorial/3-conditional-rendering/final/2-short-circuit';
 import Return3 from './tutorial/3-conditional-rendering/final/3-show-hide';
 import Input1 from './tutorial/4-forms/final/1-controlled-inputs';
 import Input2 from './tutorial/4-forms/final/2-multiple-inputs';
+import UseRef1 from './tutorial/5-useRef/setup/1-useRef-basics';
+import UseReducer1 from './tutorial/6-useReducer/1-formObject_Example';
+import UseReducer2 from './tutorial/6-useReducer/2-ToDoList-arrawy_Example';
+import UseReducer3 from './tutorial/6-useReducer/3-Passing_the_initializer_function';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className="container">
@@ -36,6 +40,11 @@ root.render(
           <Route path="/return3" element={<Return3 />} />
           <Route path="/input1" element={<Input1 />} />
           <Route path="/input2" element={<Input2 />} />
+          <Route path="/useRef1" element={<UseRef1 />} />
+          <Route path="/useReducer1" element={<UseReducer1 />} />
+          <Route path="/useReducer2" element={<UseReducer2 />} />
+          {/* in the useReducer3 route, the username prop is passed to the UseReducer3 component */}
+          <Route path="/useReducer3" element={<UseReducer3 username="KhoaLiang"/>} />
         </Routes>
       </Router>
     </React.StrictMode>
