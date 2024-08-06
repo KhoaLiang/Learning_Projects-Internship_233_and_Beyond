@@ -22,6 +22,8 @@ import UseReducer2 from './tutorial/6-useReducer/2-ToDoList-arrawy_Example';
 import UseReducer3 from './tutorial/6-useReducer/3-Passing_the_initializer_function';
 import PropDrilling from './tutorial/7-prop-drilling/final/1-prop-drilling';
 import ContextAPI from './tutorial/8-useContext/final/1-context-api';
+import FecthExample from './tutorial/9-custom-hooks/final/1-fetch-example';
+//if you want to see navigation bar go to //tutorial/11-react-router/final/Navbar.js
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className="container">
@@ -49,6 +51,7 @@ root.render(
           <Route path="/useReducer3" element={<UseReducer3 username="KhoaLiang"/>} />
           <Route path="/propDrilling" element={<PropDrilling />} />
           <Route path="/contextAPI" element={<ContextAPI />} />
+          <Route path="/fetchExample" element={<FecthExample />} />
         </Routes>
       </Router>
     </React.StrictMode>
