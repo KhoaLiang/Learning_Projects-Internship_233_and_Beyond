@@ -14,7 +14,8 @@ import UseEffect3 from './tutorial/2-useEffect/final/3-useEffect-fetch-data';
 import Return1 from './tutorial/3-conditional-rendering/final/1-multiple-returns';
 import Return2 from './tutorial/3-conditional-rendering/final/2-short-circuit';
 import Return3 from './tutorial/3-conditional-rendering/final/3-show-hide';
-
+import Input1 from './tutorial/4-forms/final/1-controlled-inputs';
+import Input2 from './tutorial/4-forms/final/2-multiple-inputs';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className="container">
@@ -33,6 +34,8 @@ root.render(
           <Route path="/return1" element={<Return1 />} />
           <Route path="/return2" element={<Return2 />} />
           <Route path="/return3" element={<Return3 />} />
+          <Route path="/input1" element={<Input1 />} />
+          <Route path="/input2" element={<Input2 />} />
         </Routes>
       </Router>
     </React.StrictMode>

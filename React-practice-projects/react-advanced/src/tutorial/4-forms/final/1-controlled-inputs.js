@@ -11,6 +11,9 @@ const ControlledInputs = () => {
   const [people, setPeople] = useState([]);
 
   const handleSubmit = (e) => {
+    // Prevent the default behavior of the form
+    // which is to refresh the page
+    // when the form is submitted
     e.preventDefault();
     if (firstName && email) {
       const person = { id: new Date().getTime().toString(), firstName, email };
