@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { data } from '../../../data';
 // more components
 // fix - context api, redux (for more complex cases)
-
+//this file is the final version of the prop drilling tutorial
+//prop drilling is the process of passing props from a parent component to a deeply nested child component
+//without going through the intermediate components
+//this can be a problem when the intermediate components do not need the props
+//this can be solved by using context api or redux
 const PropDrilling = () => {
   const [people, setPeople] = useState(data);
   const removePerson = (id) => {

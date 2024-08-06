@@ -20,6 +20,8 @@ import UseRef1 from './tutorial/5-useRef/setup/1-useRef-basics';
 import UseReducer1 from './tutorial/6-useReducer/1-formObject_Example';
 import UseReducer2 from './tutorial/6-useReducer/2-ToDoList-arrawy_Example';
 import UseReducer3 from './tutorial/6-useReducer/3-Passing_the_initializer_function';
+import PropDrilling from './tutorial/7-prop-drilling/final/1-prop-drilling';
+import ContextAPI from './tutorial/8-useContext/final/1-context-api';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <div className="container">
@@ -45,6 +47,8 @@ root.render(
           <Route path="/useReducer2" element={<UseReducer2 />} />
           {/* in the useReducer3 route, the username prop is passed to the UseReducer3 component */}
           <Route path="/useReducer3" element={<UseReducer3 username="KhoaLiang"/>} />
+          <Route path="/propDrilling" element={<PropDrilling />} />
+          <Route path="/contextAPI" element={<ContextAPI />} />
         </Routes>
       </Router>
     </React.StrictMode>
