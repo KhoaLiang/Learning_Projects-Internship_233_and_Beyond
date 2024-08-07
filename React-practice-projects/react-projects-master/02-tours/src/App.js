@@ -50,6 +50,7 @@ function App() {
     <main>
       <ToursContext.Provider value={{ setTours, tours }}>
         <Tours tours={tours} />
+        <button className='btn' onClick={() => fetchTours()}>Reset</button>
       </ToursContext.Provider>
     </main>
   );
