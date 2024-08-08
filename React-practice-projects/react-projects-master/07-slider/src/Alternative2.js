@@ -6,19 +6,25 @@ function App() {
   const [people, setPeople] = useState(data);
   const [index, setIndex] = React.useState(0);
 
-  useEffect(() => {
-    const lastIndex = people.length - 1;
-    if (index < 0) {
-      setIndex(lastIndex);
-    }
-    if (index > lastIndex) {
-      setIndex(0);
-    }
-  }, [index, people]);
+  const nextSlide = () => {
+    setIndex((oldIndex) => {
+      const result = (oldIndex + 1) % people.length;
+      return result;
+    });
+  };
+  const prevSlide = () => {
+    setIndex((oldIndex) => {
+      const result = (oldIndex - 1 + people.length) % people.length;
+      return result;
+    });
+  };
 
   useEffect(() => {
     let slider = setInterval(() => {
-      setIndex(index + 1);
+      setIndex((oldIndex) => {
+        const result = (oldIndex + 1) % people.length;
+        return result;
+      });
     }, 5000);
     return () => {
       clearInterval(slider);
@@ -26,13 +32,13 @@ function App() {
   }, [index]);
 
   return (
-    <section className="section">
-      <div className="title">
+    <section className='section'>
+      <div className='title'>
         <h2>
           <span>/</span>reviews
         </h2>
       </div>
-      <div className="section-center">
+      <div className='section-center'>
         {people.map((person, personIndex) => {
           const { id, image, name, title, quote } = person;
 
@@ -49,18 +55,18 @@ function App() {
 
           return (
             <article className={position} key={id}>
-              <img src={image} alt={name} className="person-img" />
+              <img src={image} alt={name} className='person-img' />
               <h4>{name}</h4>
-              <p className="title">{title}</p>
-              <p className="text">{quote}</p>
-              <FaQuoteRight className="icon" />
+              <p className='title'>{title}</p>
+              <p className='text'>{quote}</p>
+              <FaQuoteRight className='icon' />
             </article>
           );
         })}
-        <button className="prev" onClick={() => setIndex(index - 1)}>
+        <button className='prev' onClick={prevSlide}>
           <FiChevronLeft />
         </button>
-        <button className="next" onClick={() => setIndex(index + 1)}>
+        <button className='next' onClick={nextSlide}>
           <FiChevronRight />
         </button>
       </div>
