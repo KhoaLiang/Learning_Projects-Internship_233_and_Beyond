@@ -2,6 +2,7 @@
 // if want custom extend from class
 // otherwise just for emitting and handling events create instance
 const EventEmitter = require('events')
+const { set } = require('lodash')
 
 const customEmitter = new EventEmitter()
 
@@ -18,4 +19,6 @@ customEmitter.on('response', () => {
   console.log('some other logic here')
 })
 
-customEmitter.emit('response', 'john', 34)
+setTimeout(() => {
+  customEmitter.emit('response', 'Khoa', 24)
+}, 1000);
