@@ -30,25 +30,28 @@ app.get('/api/products/:productID', (req, res) => {
 
 app.get('/api/products/:productID/reviews/:reviewID', (req, res) => {
   console.log(req.params)
+  //req.params { productID: '1', reviewID: '1000' }
+  //req.params will be an object with key value pairs with the name of the route parameter and the value of the route parameter
   res.send('hello world')
 })
 
 app.get('/api/v1/query', (req, res) => {
-  // console.log(req.query)
+  //example http://localhost:5000/api/v1/query?search=alb&limit=1
+  console.log(req.query)
   const { search, limit } = req.query
   let sortedProducts = [...products]
 
   if (search) {
-    sortedProducts = sortedProducts.filter((product) => {
+      sortedProducts = sortedProducts.filter((product) => {
       return product.name.startsWith(search)
-    })
+      })
   }
   if (limit) {
-    sortedProducts = sortedProducts.slice(0, Number(limit))
+      sortedProducts = sortedProducts.slice(0, Number(limit))
   }
   if (sortedProducts.length < 1) {
-    // res.status(200).send('no products matched your search');
-    return res.status(200).json({ sucess: true, data: [] })
+      // res.status(200).send('no products matched your search');
+      return res.status(200).json({ sucess: true, data: [] })
   }
   res.status(200).json(sortedProducts)
 })
