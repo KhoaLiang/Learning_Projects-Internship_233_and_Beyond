@@ -8,13 +8,9 @@ require('dotenv').config();
 
 
 //middleware
-
+app.use(express.static('./public')); //middleware to serve static files
 app.use(express.json()); //middleware to parse json data
 //routes
-app.get('/hello', (req, res) => {
-    res.send('Task manager app'); //send response to the client
-})
-
 app.use('/api/v1/tasks', tasks);
 
 const port = 3000;

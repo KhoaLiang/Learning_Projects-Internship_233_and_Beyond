@@ -4,6 +4,7 @@
 //but the question is where is the model?
 //the model is the data that the controller needs to work with
 //the model is saved in the database
+//in this case, the model is the Task model, we can view the model as specific data model that the controller needs to work with in the database and the form of the data model is defined in the Task model.
 const express = require('express');
 const router = express.Router();
 
