@@ -41,16 +41,16 @@ public:
      *  >> throw an exception (std::out_of_range) if index is invalid
      */
     virtual T       removeAt(int index)=0;
-    
-    
+
     /* removeItem(T item, void (*removeItemData)(T)=0): remove item stored in the list
      *   >> removeItemData: a function pointer (maybe NULL, default),
      *          that will be called inside of removeItem to delete the item's data stored in the list
      *   >> removeItemData, why need? because we DO NOT type T is a pointer or not.
-     * 
+     *
      * return:
-     *   >> true if "item" stored in the list; 
+     *   >> true if "item" stored in the list;
      *   >> otherwise, return false
+     *  T item: the data type could be anything.
      */
     virtual bool    removeItem(T item, void (*removeItemData)(T)=0)=0;
     
