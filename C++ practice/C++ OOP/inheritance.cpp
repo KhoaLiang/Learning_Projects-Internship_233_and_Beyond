@@ -223,21 +223,108 @@
 // }
 
 // making my own person example
- #include <iostream>
+// #include <iostream>
+
+// using namespace std;
+
+// class Person
+// {
+//     private:
+//         string name;
+//         int age;
+//         string address;
+//     public:
+//         Person(string name, int age, string address){
+//             this->name = name;
+//             this->age = age;
+//             this->address = address;
+//         }
+//         void setName(string name){
+//             this->name = name;
+//         }
+//         string getName(){
+//             return name;
+//         }
+//         void setAge(int age){
+//             this->age = age;
+//         }
+//         int getAge(){
+//             return age;
+//         }
+//         void setAddress(string address){
+//             this->address = address;
+//         }
+//         string getAddress(){
+//             return address;
+//         }
+//         void display(){
+//             cout << "Name: " << name << endl;
+//             cout << "Age: " << age << endl;
+//             cout << "Address: " << address << endl;
+//         }
+// };
+
+// class Student : public Person
+// {
+//     private:
+//         double gpa;
+//     public:
+//         Student(string name, int age, string address, double gpa) : Person(name, age, address){
+//             this->gpa = gpa;
+//         }
+//         void setGpa(double gpa){
+//             this->gpa = gpa;
+//         }
+//         double getGpa(){
+//             return gpa;
+//         }
+//         void display(){
+//             Person::display();
+//             cout << "GPA: " << gpa << endl;
+//         }
+// };
+
+// class Teacher : public Person
+// {
+//     private:
+//         int salary;
+//     public:
+//         Teacher(string name, int age, string address, int salary) : Person(name, age, address){
+//             this->salary = salary;
+//         }
+//         void setSalary(int salary){
+//             this->salary = salary;
+//         }
+//         int getSalary(){
+//             return salary;
+//         }
+//         void display(){
+//             Person::display();
+//             cout << "Salary: " << salary << endl;
+//         }
+// };
+// int main()
+// {
+//     Student s("Khanh", 23, "Ha Noi", 9.0);
+//     s.display();
+//     Teacher t("Tung", 34, "Ha Noi", 1700);
+//     t.display();
+//     return 0;
+// }
+
+//employee and manager example
+#include <iostream>
 
 using namespace std;
 
-class Person
-{
+class Employee{
     private:
         string name;
-        int dob;
-
+        int salary;
     public:
-        Person(string name, int dob)
-        {
+        Employee(string name, int salary){
             this->name = name;
-            this->dob = dob;
+            this->salary = salary;
         }
         void setName(string name){
             this->name = name;
@@ -245,35 +332,44 @@ class Person
         string getName(){
             return name;
         }
-        void setDob(int dob){
-            this->dob = dob;
+        void setSalary(int salary){
+            this->salary = salary;
         }
-        int getDob(){
-            return dob;
+        int getSalary(){
+            return salary;
+        }
+        void display(){
+            cout << "Name: " << name << endl;
+            cout << "Salary: " << salary << endl;
         }
 };
 
-class Student : public Person
-{
+class Manager : public Employee{
     private:
-        double gpa;
+        int bonus;
     public:
-        Student(string name, int dob, double gpa) : Person(name, dob){
-            this->gpa = gpa;
+        Manager(string name, int salary, int bonus) : Employee(name, salary){
+            this->bonus = bonus;
         }
-        void setGpa(double gpa){
-            this->gpa = gpa;
+        int getSalary()
+        {
+            return Employee::getSalary() + bonus;
         }
-        double getGpa(){
-            return gpa;
+        void setBonus(int bonus){
+            this->bonus = bonus;
+        }
+        int getBonus(){
+            return bonus;
+        }
+        void display()
+        {
+            cout << "Name: " << getName() << endl;
+            cout << "Salary: " << getSalary() << endl;
         }
 };
 
-int main()
-{
-    Student s("Hai", 1999, 8.8);
-    cout << "Name: " << s.getName() << endl;
-    cout << "Date of birth: " << s.getDob() << endl;
-    cout << "GPA: " << s.getGpa() << endl;
+int main(){
+    Manager m("Hai", 1700, 300);
+    m.display();
     return 0;
 }
