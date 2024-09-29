@@ -454,62 +454,307 @@
 // printVector(updateArrayPerRange(nums, operations));
 // [21, 8, 14, 9, 14, 32]
 
+// #include <iostream>
+// #include <vector>
+
+// using namespace std;
+
+// // Implement function
+// vector<int> updateArrayPerRange(vector<int> &nums, vector<vector<int>> &operations)
+// {
+//     // FUNCTION updateArrayPerRange(nums, operations):
+//     //     FOR each operation in operations:
+//     //         SET L to operation[0]
+//     //         SET R to operation[1]
+//     //         SET X to operation[2]
+
+//     //         FOR i from L to R:
+//     //             INCREMENT nums[i] by X
+//     //         END FOR
+//     //     END FOR
+
+//     //     RETURN nums
+//     // END FUNCTION
+//     for (vector<int> &operation : operations)
+//     {
+//         int L = operation[0];
+//         int R = operation[1];
+//         int X = operation[2];
+
+//         for (int i = L; i <= R; i++)
+//         {
+//             nums[i] += X;
+//         }
+//     }
+
+//     return nums;
+// }
+
+// // Helper function to print a vector
+// void printVector(const vector<int> &nums)
+// {
+//     cout << "[";
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         cout << nums[i];
+//         if (i < nums.size() - 1)
+//         {
+//             cout << ", ";
+//         }
+//     }
+//     cout << "]" << endl;
+// }
+
+// int main()
+// {
+//     vector<int> nums{13, 0, 6, 9, 14, 16};
+//     vector<vector<int>> operations{{5, 5, 16}, {3, 4, 0}, {0, 2, 8}};
+//     printVector(updateArrayPerRange(nums, operations));
+
+//     return 0;
+// }
+
+//exercise 5
+// Given an array of integers.
+// Your task is to implement a function with the following prototype:
+// bool consecutiveOnes(vector<int>& nums);
+// The function returns if all the 1s appear consecutively in nums. If nums does not contain any elements, please return true
+
+// Note:
+// - The iostream and vector libraries have been included and namespace std are being used. No other libraries are allowed.
+// - You can write helper functions.
+// - Do not use global variables in your code.
+
+// For example:
+
+// Test	Result
+// vector<int> nums {0, 1, 1, 1, 9, 8};
+// cout << consecutiveOnes(nums);
+// 1
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-// Implement function
-vector<int> updateArrayPerRange(vector<int> &nums, vector<vector<int>> &operations)
-{
-    // FUNCTION updateArrayPerRange(nums, operations):
-    //     FOR each operation in operations:
-    //         SET L to operation[0]
-    //         SET R to operation[1]
-    //         SET X to operation[2]
+// Function prototype
+bool consecutiveOnes(vector<int>& nums);
 
-    //         FOR i from L to R:
-    //             INCREMENT nums[i] by X
-    //         END FOR
-    //     END FOR
+// Pseudocode for the function
+/*
+bool consecutiveOnes(vector<int>& nums) {
+    // If the array is empty, return true
+    // Initialize a flag to check if we are in a sequence of 1s
+    // Iterate through the array
+        // If the current element is 1
+            // If the flag is false, set it to true
+        // Else if the current element is not 1
+            // If the flag is true, break the loop
+    // Iterate through the array again
+        // If the current element is 1 and the flag is false, return false
+    // Return true
+}
+*/
 
-    //     RETURN nums
-    // END FUNCTION
-    for (vector<int> &operation : operations)
-    {
-        int L = operation[0];
-        int R = operation[1];
-        int X = operation[2];
+int main() {
+    // Test cases
+    vector<int> nums1 {0, 1, 1, 1, 9, 8};
+    vector<int> nums2 {1, 1, 0, 1};
+    vector<int> nums3 {0, 0, 0};
+    vector<int> nums4 {1, 1, 1};
+    vector<int> nums5 {};
 
-        for (int i = L; i <= R; i++)
-        {
-            nums[i] += X;
-        }
-    }
+    // Output results
+    cout << consecutiveOnes(nums1) << endl; // Expected: 1
+    cout << consecutiveOnes(nums2) << endl; // Expected: 0
+    cout << consecutiveOnes(nums3) << endl; // Expected: 1
+    cout << consecutiveOnes(nums4) << endl; // Expected: 1
+    cout << consecutiveOnes(nums5) << endl; // Expected: 1
 
-    return nums;
+    return 0;
 }
 
-// Helper function to print a vector
-void printVector(const vector<int> &nums)
-{
-    cout << "[";
-    for (int i = 0; i < nums.size(); i++)
-    {
-        cout << nums[i];
-        if (i < nums.size() - 1)
-        {
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
+//exercise 6
+// Thời gian còn lại 52:38:59
+// Câu hỏi 6
+// Not complete
+// Đạt điểm 1,00
+// Đặt cờ
+// Đoạn văn câu hỏi
+// The prices of all cars of a car shop have been saved as an array called N. Each element of the array N is the price of each car in shop. A person, with the amount of money k want to buy as much cars as possible. 
+
+// Request: Implement function
+
+// buyCar(int* nums, int length, int k);
+// Where nums is the array N, length is the size of this array and k is the amount of money the person has. Find the maximum cars this person can buy with his money, and return that number.
+// Example:
+
+// nums=[90, 30, 20, 40, 50]; k=90; 
+
+// The result is 3, he can buy the cars having index 1, 2, 3 (first index is 0).
+
+// Note: The library iostream, 'algorithm' and using namespace std have been used. You can add other functions but you are not allowed to add other libraries.
+
+// For example:
+
+// Test	Result
+// int nums[] = {90,30,40,90,20};
+// int length = sizeof(nums)/sizeof(nums[0]);
+// cout << buyCar(nums, length, 90) << "\n";
+// 3
+
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+// Function prototype
+int buyCar(int* nums, int length, int k);
+
+// Pseudocode for the function
+/*
+int buyCar(int* nums, int length, int k) {
+    // Sort the array of car prices in ascending order
+    // Initialize a counter for the number of cars that can be bought
+    // Initialize a variable to keep track of the total cost
+    // Iterate through the sorted array
+        // If the current car price can be afforded with the remaining money
+            // Add the car price to the total cost
+            // Increment the counter
+        // Else
+            // Break the loop as no more cars can be bought
+    // Return the counter as the maximum number of cars that can be bought
+}
+*/
+
+int main() {
+    // Test cases
+    int nums1[] = {90, 30, 20, 40, 50};
+    int length1 = sizeof(nums1) / sizeof(nums1[0]);
+    int k1 = 90;
+
+    int nums2[] = {90, 30, 40, 90, 20};
+    int length2 = sizeof(nums2) / sizeof(nums2[0]);
+    int k2 = 90;
+
+    // Output results
+    cout << buyCar(nums1, length1, k1) << "\n"; // Expected: 3
+    cout << buyCar(nums2, length2, k2) << "\n"; // Expected: 3
+
+    return 0;
 }
 
-int main()
-{
-    vector<int> nums{13, 0, 6, 9, 14, 16};
-    vector<vector<int>> operations{{5, 5, 16}, {3, 4, 0}, {0, 2, 8}};
-    printVector(updateArrayPerRange(nums, operations));
+//exercise 7
+// Given an array of integers.
+// Your task is to implement a function with following prototype:
+// int equalSumIndex(vector<int>& nums);
+// The function returns the smallest index i such that the sum of the numbers to the left of i is equal to the sum of the numbers to the right.
+// If no such index exists, return -1.
+
+// Note:
+// - The iostream and vector libraries have been included and namespace std is being used. No other libraries are allowed.
+// - You can write helper functions.
+
+// For example:
+
+// Test	Result
+// vector<int> nums {3, 5, 2, 7, 6, 4};
+// cout << equalSumIndex(nums);
+// 3
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function prototype
+int equalSumIndex(vector<int>& nums);
+
+// Pseudocode for the function
+/*
+int equalSumIndex(vector<int>& nums) {
+    // Initialize variables to store the total sum of the array and the left sum
+    // Calculate the total sum of the array
+    // Iterate through the array
+        // Subtract the current element from the total sum to get the right sum
+        // If the left sum is equal to the right sum, return the current index
+        // Add the current element to the left sum
+    // If no such index is found, return -1
+}
+*/
+
+int main() {
+    // Test cases
+    vector<int> nums1 {3, 5, 2, 7, 6, 4};
+    vector<int> nums2 {1, 2, 3, 4, 6};
+    vector<int> nums3 {1, 2, 3, 3};
+    vector<int> nums4 {1, 2, 3};
+    vector<int> nums5 {2, 1, -1, 2};
+
+    // Output results
+    cout << equalSumIndex(nums1) << endl; // Expected: 3
+    cout << equalSumIndex(nums2) << endl; // Expected: 3
+    cout << equalSumIndex(nums3) << endl; // Expected: 2
+    cout << equalSumIndex(nums4) << endl; // Expected: -1
+    cout << equalSumIndex(nums5) << endl; // Expected: 1
+
+    return 0;
+}
+
+//exercise 8
+// Given an array of strings.
+// Your task is to implement a function with following prototype:
+// int longestSublist(vector<string>& words);
+// The function returns the length of the longest subarray where all words share the same first letter.
+
+// Note:
+// - The iostream and vector libraries have been included and namespace std is being used. No other libraries are allowed.
+// - You can write helper functions.
+
+// For example:
+
+// Test	Result
+// vector<string> words {"faction", "fight", "and", "are", "attitude"};
+// cout << longestSublist(words);
+// 3
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+// Function prototype
+int longestSublist(vector<string>& words);
+
+// Pseudocode for the function
+/*
+int longestSublist(vector<string>& words) {
+    // Initialize variables to keep track of the longest sublist length and the current sublist length
+    // Initialize a variable to store the first letter of the current sublist
+    // Iterate through the list of words
+        // If the current word starts with the same letter as the previous word
+            // Increment the current sublist length
+        // Else
+            // Update the longest sublist length if the current sublist is longer
+            // Reset the current sublist length to 1
+            // Update the first letter of the current sublist
+    // After the loop, update the longest sublist length if the last sublist is the longest
+    // Return the longest sublist length
+}
+*/
+
+int main() {
+    // Test cases
+    vector<string> words1 {"faction", "fight", "and", "are", "attitude"};
+    vector<string> words2 {"apple", "banana", "apricot", "blueberry", "blackberry"};
+    vector<string> words3 {"cat", "car", "dog", "deer", "elephant"};
+    vector<string> words4 {"hello", "hi", "hey", "hola"};
+    vector<string> words5 {"zebra", "zoo", "zebra", "zoo"};
+
+    // Output results
+    cout << longestSublist(words1) << endl; // Expected: 3
+    cout << longestSublist(words2) << endl; // Expected: 2
+    cout << longestSublist(words3) << endl; // Expected: 2
+    cout << longestSublist(words4) << endl; // Expected: 4
+    cout << longestSublist(words5) << endl; // Expected: 4
 
     return 0;
 }
