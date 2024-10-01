@@ -56,6 +56,267 @@
 // cout << list.toString();
 // [9,8,7,6,5,4,3,2,1,0]
 
+// #include <iostream>
+// #include <string>
+// #include <sstream>
+
+// using namespace std;
+
+// // Template class for singly linked list
+// template <class T>
+// class SLinkedList {
+// public:
+//     class Node; // Forward declaration
+// protected:
+//     Node* head;
+//     Node* tail;
+//     int count;
+// public:
+//     SLinkedList();
+//     ~SLinkedList();
+//     void add(T e);
+//     void add(int index, T e);
+//     int size();
+//     string toString() const;
+// public:
+//     class Node {
+//     private:
+//         T data;
+//         Node* next;
+//         friend class SLinkedList<T>;
+//     public:
+//         Node() {
+//             next = nullptr;
+//         }
+//         Node(Node* next) {
+//             this->next = next;
+//         }
+//         Node(T data, Node* next) {
+//             this->data = data;
+//             this->next = next;
+//         }
+//     };
+// };
+
+// // Constructor
+// template <class T>
+// SLinkedList<T>::SLinkedList() {
+//     // Initialize head to nullptr
+//     this->head = nullptr;
+//     // Initialize tail to nullptr
+//     this->tail = nullptr;
+//     // Initialize count to 0
+//     count = 0;
+// }
+
+// // Destructor
+// // Destructor
+// template <class T>
+// SLinkedList<T>::~SLinkedList()
+// {
+//     Node *current = head; // Initialize a pointer to the head node
+//     while (current != nullptr)
+//     {                                   // While the current node is not nullptr
+//         Node *nextNode = current->next; // Store the next node
+//         delete current;                 // Delete the current node
+//         current = nextNode;             // Move to the next node
+//     }
+//     head = nullptr; // Optional: Set head to nullptr to avoid dangling pointer
+// }
+
+// // Add element to the end of the list
+// template <class T>
+// void SLinkedList<T>::add(T e) {
+//     // Create a new node with the given element
+//     Node *newNode = new Node(e, nullptr);
+//     // If the list is empty (head is nullptr)
+//         // Set head and tail to the new node
+//     if (head == nullptr)
+//     {
+//         head = newNode;
+//         tail = newNode;
+//     }
+//     // Else
+//         // Set the next of tail to the new node
+//         // Update tail to the new node
+//     else{
+//         tail->next = newNode;
+//         tail = newNode;
+//     }
+//     // Increment the count
+//     count++;
+// }
+
+// // Add element at a specific index
+// template <class T>
+// void SLinkedList<T>::add(int index, T e) {
+//     // Check if the index is valid (0 <= index <= count)
+//     if (index < 0 || index > count)
+//     {
+//         throw out_of_range("Index out of range");
+//     }
+
+//     // Create a new node with the given element
+//     // If the index is 0
+//         // Set the next of the new node to head
+//         // Update head to the new node
+//         // If the list was empty, update tail to the new node
+//     // Else
+//         // Initialize a pointer to the head node
+//         // Iterate to the node just before the given index
+//         // Set the next of the new node to the next of the current node
+//         // Set the next of the current node to the new node
+//         // If the new node is added at the end, update tail to the new node
+//     // Increment the count
+//     Node *newNode = new Node(e, nullptr);
+//     if (index == 0)
+//     {
+//         newNode->next = head;
+//         head = newNode;
+//         if (count == 0)
+//         {
+//             tail = newNode;
+//         }
+//     }
+//     else{
+//         Node *current = head;
+//         for (int i = 0; i < index - 1; ++i)
+//         {
+//             current = current->next;
+//         }
+//         newNode->next = current->next;
+//         current->next = newNode;
+//         // If the new node is added at the end, update tail to the new node
+//         if (newNode->next == nullptr)
+//         {
+//             tail = newNode;
+//         }
+//     }
+//     count++;
+// }
+
+// // Return the size of the list
+// template <class T>
+// int SLinkedList<T>::size() {
+//     // Return the count of nodes in the list
+//     return count;
+// }
+
+// // Method to convert list to string (for testing purposes)
+// template <class T>
+// string SLinkedList<T>::toString() const {
+//     stringstream ss;
+//     ss << "[";
+//     Node* current = head;
+//     while (current != nullptr) {
+//         ss << current->data;
+//         if (current->next != nullptr) {
+//             ss << ",";
+//         }
+//         current = current->next;
+//     }
+//     ss << "]";
+//     return ss.str();
+// }
+
+// int main() {
+//     // Test cases
+//     SLinkedList<int> list1;
+//     int size1 = 10;
+
+//     for (int index = 0; index < size1; index++) {
+//         list1.add(index);
+//     }
+
+//     cout << list1.toString() << endl; // Expected: [0,1,2,3,4,5,6,7,8,9]
+
+//     SLinkedList<int> list2;
+//     int size2 = 10;
+
+//     for (int index = 0; index < size2; index++) {
+//         list2.add(0, index);
+//     }
+
+//     cout << list2.toString() << endl; // Expected: [9,8,7,6,5,4,3,2,1,0]
+
+//     return 0;
+// }
+
+//exercise 2
+// Implement methods get, set, empty, indexOf, contains in template class SLinkedList (which implements List ADT) representing the singly linked list with type T with the initialized frame. The description of each method is given in the code.
+
+// template <class T>
+// class SLinkedList {
+// public:
+//     class Node; // Forward declaration
+// protected:
+//     Node* head;
+//     Node* tail;
+//     int count;
+// public:
+//     SLinkedList(): head(NULL), tail(NULL), count(0);
+//     ~SLinkedList() { };
+//     void    add(T e);
+//     void    add(int index, T e);
+//     int     size();
+//     bool    empty();
+//     T       get(int index);
+//     void    set(int index, T e);
+//     int     indexOf(T item);
+//     bool    contains(T item);
+// public:
+//     class Node {
+//     private:
+//         T data;
+//         Node* next;
+//         friend class SLinkedList<T>;
+//     public:
+//         Node() {
+//             next = 0;
+//         }
+//         Node(Node* next) {
+//             this->next = next;
+//         }
+//         Node(T data, Node* next = NULL) {
+//             this->data = data;
+//             this->next = next;
+//         }
+//     };
+// };
+ 
+
+ 
+
+ 
+
+ 
+
+// For example:
+
+// Test	Result
+// SLinkedList<int> list;
+// int values[]   = {10, 15, 2,  6,  4,  7,  40,  8};
+// int index[]    = {0,  0,  1,  3,  2,  3,  5,   0};
+// int expvalues[]= {8,  15, 2,  4,  7, 10,  40,  6}; 
+
+// for (int idx = 0; idx < 8; idx++){
+//    list.add(index[idx], values[idx]);
+// }
+
+// assert( list.size() == 8 );
+        
+// for (int idx = 0; idx < 8; idx++){
+//     assert( list.get(idx) == expvalues[idx] );
+// }
+
+// cout << list.toString();
+// [8,15,2,4,7,10,40,6]
+// SLinkedList<int> list;
+
+// assert( list.empty() == true );
+// cout << list.toString();
+// []
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -77,6 +338,11 @@ public:
     void add(T e);
     void add(int index, T e);
     int size();
+    bool empty();
+    T get(int index);
+    void set(int index, T e);
+    int indexOf(T item);
+    bool contains(T item);
     string toString() const;
 public:
     class Node {
@@ -202,6 +468,90 @@ int SLinkedList<T>::size() {
     return count;
 }
 
+// Check if the list is empty
+template<class T>
+bool SLinkedList<T>::empty() {
+    // Return true if count is 0, otherwise false
+    if (count == 0)
+    {
+        return true;
+    }
+    return false;
+}
+
+// Get the element at a specific index
+template<class T>
+T SLinkedList<T>::get(int index) {
+    // Check if the index is valid (0 <= index <= count)
+    if (index < 0 || index > count)
+    {
+        throw out_of_range("Index out of range");
+    }
+    // Initialize a pointer to the head node
+    Node *current = head;
+    // Iterate to the node at the given index
+    for (int i = 0; i < index; ++i)
+    {
+        current = current->next;
+    }
+    // Return the data of the node
+    return current->data;
+}
+
+// Set the element at a specific index
+template <class T>
+void SLinkedList<T>::set(int index, T e) {
+    // Check if the index is valid (0 <= index <= count)
+    if (index < 0 || index > count)
+    {
+        throw out_of_range("Index out of range");
+    }
+    // Initialize a pointer to the head node
+    Node *current = head;
+    // Iterate to the node at the given index
+    for (int i = 0; i < index; ++i)
+    {
+        current = current->next;
+    }
+    // Set the data of the node to the given element
+    current->data = e;
+}
+
+// Return the first index where the item appears in the list
+template<class T>
+int SLinkedList<T>::indexOf(T item) {
+    // Initialize a pointer to the head node
+    Node *current = head;
+    // Initialize an index counter to 0
+    int index = 0;
+    // While the current node is not nullptr
+        // If the data of the current node equals the item
+            // Return the index counter
+        // Move to the next node
+        // Increment the index counter
+    // Return -1 if the item is not found
+    while(current != nullptr){
+        if (current->data == item)
+        {
+            return index;
+        }
+        current = current->next;
+        index++;
+    }
+    return -1;
+}
+
+// Check if the item appears in the list
+template<class T>
+bool SLinkedList<T>::contains(T item) {
+    // Return true if indexOf(item) is not -1, otherwise false
+    if (indexOf(item) != -1)
+    {
+        return true;
+    }
+    return false;
+}
+
 // Method to convert list to string (for testing purposes)
 template <class T>
 string SLinkedList<T>::toString() const {
@@ -219,311 +569,45 @@ string SLinkedList<T>::toString() const {
     return ss.str();
 }
 
-int main() {
-    // Test cases
-    SLinkedList<int> list1;
-    int size1 = 10;
+int main()
+{
+    // Test cases for exercise 2
+    SLinkedList<int> list3;
+    int values[] = {10, 15, 2, 6, 4, 7, 40, 8};
+    int index[] = {0, 0, 1, 3, 2, 3, 5, 0};
+    int expvalues[] = {8, 15, 2, 4, 7, 10, 40, 6};
 
-    for (int index = 0; index < size1; index++) {
-        list1.add(index);
+    for (int idx = 0; idx < 8; idx++)
+    {
+        list3.add(index[idx], values[idx]);
     }
 
-    cout << list1.toString() << endl; // Expected: [0,1,2,3,4,5,6,7,8,9]
+    cout << "List after adding elements: " << list3.toString() << endl; // Expected: [8,15,2,4,7,10,40,6]
 
-    SLinkedList<int> list2;
-    int size2 = 10;
+    // Test get method
+    cout << "Get element at index 0: " << list3.get(0) << " (Expected: 8)" << endl;
+    cout << "Get element at index 3: " << list3.get(3) << " (Expected: 4)" << endl;
 
-    for (int index = 0; index < size2; index++) {
-        list2.add(0, index);
-    }
+    // Test set method
+    list3.set(0, 100);
+    cout << "List after setting element at index 0 to 100: " << list3.toString() << " (Expected: [100,15,2,4,7,10,40,6])" << endl;
+    list3.set(3, 200);
+    cout << "List after setting element at index 3 to 200: " << list3.toString() << " (Expected: [100,15,2,200,7,10,40,6])" << endl;
 
-    cout << list2.toString() << endl; // Expected: [9,8,7,6,5,4,3,2,1,0]
+    // Test indexOf method
+    cout << "Index of element 100: " << list3.indexOf(100) << " (Expected: 0)" << endl;
+    cout << "Index of element 200: " << list3.indexOf(200) << " (Expected: 3)" << endl;
+    cout << "Index of element 7: " << list3.indexOf(7) << " (Expected: 4)" << endl;
+    cout << "Index of element 999: " << list3.indexOf(999) << " (Expected: -1)" << endl;
+
+    // Test contains method
+    cout << "Contains element 100: " << (list3.contains(100) ? "true" : "false") << " (Expected: true)" << endl;
+    cout << "Contains element 200: " << (list3.contains(200) ? "true" : "false") << " (Expected: true)" << endl;
+    cout << "Contains element 7: " << (list3.contains(7) ? "true" : "false") << " (Expected: true)" << endl;
+    cout << "Contains element 999: " << (list3.contains(999) ? "true" : "false") << " (Expected: false)" << endl;
 
     return 0;
 }
-
-//exercise 2
-// Implement methods get, set, empty, indexOf, contains in template class SLinkedList (which implements List ADT) representing the singly linked list with type T with the initialized frame. The description of each method is given in the code.
-
-// template <class T>
-// class SLinkedList {
-// public:
-//     class Node; // Forward declaration
-// protected:
-//     Node* head;
-//     Node* tail;
-//     int count;
-// public:
-//     SLinkedList(): head(NULL), tail(NULL), count(0);
-//     ~SLinkedList() { };
-//     void    add(T e);
-//     void    add(int index, T e);
-//     int     size();
-//     bool    empty();
-//     T       get(int index);
-//     void    set(int index, T e);
-//     int     indexOf(T item);
-//     bool    contains(T item);
-// public:
-//     class Node {
-//     private:
-//         T data;
-//         Node* next;
-//         friend class SLinkedList<T>;
-//     public:
-//         Node() {
-//             next = 0;
-//         }
-//         Node(Node* next) {
-//             this->next = next;
-//         }
-//         Node(T data, Node* next = NULL) {
-//             this->data = data;
-//             this->next = next;
-//         }
-//     };
-// };
- 
-
- 
-
- 
-
- 
-
-// For example:
-
-// Test	Result
-// SLinkedList<int> list;
-// int values[]   = {10, 15, 2,  6,  4,  7,  40,  8};
-// int index[]    = {0,  0,  1,  3,  2,  3,  5,   0};
-// int expvalues[]= {8,  15, 2,  4,  7, 10,  40,  6}; 
-
-// for (int idx = 0; idx < 8; idx++){
-//    list.add(index[idx], values[idx]);
-// }
-
-// assert( list.size() == 8 );
-        
-// for (int idx = 0; idx < 8; idx++){
-//     assert( list.get(idx) == expvalues[idx] );
-// }
-
-// cout << list.toString();
-// [8,15,2,4,7,10,40,6]
-// SLinkedList<int> list;
-
-// assert( list.empty() == true );
-// cout << list.toString();
-// []
-
-// #include <iostream>
-// #include <string>
-// #include <sstream>
-
-// using namespace std;
-
-// // Template class for singly linked list
-// template <class T>
-// class SLinkedList {
-// public:
-//     class Node; // Forward declaration
-// protected:
-//     Node* head;
-//     Node* tail;
-//     int count;
-// public:
-//     SLinkedList();
-//     ~SLinkedList();
-//     void add(T e);
-//     void add(int index, T e);
-//     int size();
-//     bool empty();
-//     T get(int index);
-//     void set(int index, T e);
-//     int indexOf(T item);
-//     bool contains(T item);
-//     string toString() const;
-// public:
-//     class Node {
-//     private:
-//         T data;
-//         Node* next;
-//         friend class SLinkedList<T>;
-//     public:
-//         Node() {
-//             next = nullptr;
-//         }
-//         Node(Node* next) {
-//             this->next = next;
-//         }
-//         Node(T data, Node* next) {
-//             this->data = data;
-//             this->next = next;
-//         }
-//     };
-// };
-
-// // Constructor
-// template <class T>
-// SLinkedList<T>::SLinkedList() {
-//     // Initialize head to nullptr
-//     // Initialize tail to nullptr
-//     // Initialize count to 0
-// }
-
-// // Destructor
-// template <class T>
-// SLinkedList<T>::~SLinkedList() {
-//     // Initialize a pointer to the head node
-//     // While the current node is not nullptr
-//         // Store the next node
-//         // Delete the current node
-//         // Move to the next node
-// }
-
-// // Add element to the end of the list
-// template <class T>
-// void SLinkedList<T>::add(T e) {
-//     // Create a new node with the given element
-//     // If the list is empty (head is nullptr)
-//         // Set head and tail to the new node
-//     // Else
-//         // Set the next of tail to the new node
-//         // Update tail to the new node
-//     // Increment the count
-// }
-
-// // Add element at a specific index
-// template <class T>
-// void SLinkedList<T>::add(int index, T e) {
-//     // Check if the index is valid (0 <= index <= count)
-//     // Create a new node with the given element
-//     // If the index is 0
-//         // Set the next of the new node to head
-//         // Update head to the new node
-//         // If the list was empty, update tail to the new node
-//     // Else
-//         // Initialize a pointer to the head node
-//         // Iterate to the node just before the given index
-//         // Set the next of the new node to the next of the current node
-//         // Set the next of the current node to the new node
-//         // If the new node is added at the end, update tail to the new node
-//     // Increment the count
-// }
-
-// // Return the size of the list
-// template <class T>
-// int SLinkedList<T>::size() {
-//     // Return the count of nodes in the list
-// }
-
-// // Check if the list is empty
-// template<class T>
-// bool SLinkedList<T>::empty() {
-//     // Return true if count is 0, otherwise false
-// }
-
-// // Get the element at a specific index
-// template<class T>
-// T SLinkedList<T>::get(int index) {
-//     // Check if the index is valid (0 <= index < count)
-//     // Initialize a pointer to the head node
-//     // Iterate to the node at the given index
-//     // Return the data of the node
-// }
-
-// // Set the element at a specific index
-// template <class T>
-// void SLinkedList<T>::set(int index, const T& e) {
-//     // Check if the index is valid (0 <= index < count)
-//     // Initialize a pointer to the head node
-//     // Iterate to the node at the given index
-//     // Set the data of the node to the given element
-// }
-
-// // Return the first index where the item appears in the list
-// template<class T>
-// int SLinkedList<T>::indexOf(const T& item) {
-//     // Initialize a pointer to the head node
-//     // Initialize an index counter to 0
-//     // While the current node is not nullptr
-//         // If the data of the current node equals the item
-//             // Return the index counter
-//         // Move to the next node
-//         // Increment the index counter
-//     // Return -1 if the item is not found
-// }
-
-// // Check if the item appears in the list
-// template<class T>
-// bool SLinkedList<T>::contains(const T& item) {
-//     // Return true if indexOf(item) is not -1, otherwise false
-// }
-
-// // Method to convert list to string (for testing purposes)
-// template <class T>
-// string SLinkedList<T>::toString() const {
-//     stringstream ss;
-//     ss << "[";
-//     Node* current = head;
-//     while (current != nullptr) {
-//         ss << current->data;
-//         if (current->next != nullptr) {
-//             ss << ",";
-//         }
-//         current = current->next;
-//     }
-//     ss << "]";
-//     return ss.str();
-// }
-
-// int main() {
-//     // Test cases for exercise 1
-//     SLinkedList<int> list1;
-//     int size1 = 10;
-
-//     for (int index = 0; index < size1; index++) {
-//         list1.add(index);
-//     }
-
-//     cout << list1.toString() << endl; // Expected: [0,1,2,3,4,5,6,7,8,9]
-
-//     SLinkedList<int> list2;
-//     int size2 = 10;
-
-//     for (int index = 0; index < size2; index++) {
-//         list2.add(0, index);
-//     }
-
-//     cout << list2.toString() << endl; // Expected: [9,8,7,6,5,4,3,2,1,0]
-
-//     // Test cases for exercise 2
-//     SLinkedList<int> list3;
-//     int values[]   = {10, 15, 2,  6,  4,  7,  40,  8};
-//     int index[]    = {0,  0,  1,  3,  2,  3,  5,   0};
-//     int expvalues[]= {8,  15, 2,  4,  7, 10,  40,  6}; 
-
-//     for (int idx = 0; idx < 8; idx++){
-//        list3.add(index[idx], values[idx]);
-//     }
-
-//     assert( list3.size() == 8 );
-        
-//     for (int idx = 0; idx < 8; idx++){
-//         assert( list3.get(idx) == expvalues[idx] );
-//     }
-
-//     cout << list3.toString() << endl; // Expected: [8,15,2,4,7,10,40,6]
-
-//     SLinkedList<int> list4;
-
-//     assert( list4.empty() == true );
-//     cout << list4.toString() << endl; // Expected: []
-
-//     return 0;
-// }
-
 //exercise 3
 // Implement methods removeAt, removeItem, clear in template class SLinkedList (which implements List ADT) representing the singly linked list with type T with the initialized frame. The description of each method is given in the code.
 
