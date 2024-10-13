@@ -831,4 +831,210 @@
 // }
 
 //excercise 4
+// https://www.geeksforgeeks.org/list-cpp-stl/
+// In this exercise, we will use Standard Template Library List(click open in other tab to show more) to implement a Data Log.
 
+//                   This is a simple implementation in applications using undo and redo.For example in Microsoft Word,
+//     you must have nodes to store states when Ctrl Z or Ctrl Shift Z to go back or forward.
+
+//                                                                                       DataLog has a doubly linked list to store the states of data(an integer) and
+//                                                                                       iterator to mark the current state.Each state is stored in a node,
+//     the transition of states is depicted in the figure below.
+
+//     Your task in this exercise is implement functions marked with /*  * TODO   */.
+
+//     class DataLog
+// {
+// private:
+//     list<int> logList;
+//     list<int>::iterator currentState;
+
+// public:
+//     DataLog();
+//     DataLog(const int &data);
+//     void addCurrentState(int number);
+//     void subtractCurrentState(int number);
+//     void save();
+//     void undo();
+//     void redo();
+
+//     int getCurrentStateData()
+//     {
+//         return *currentState;
+//     }
+
+//     void printLog()
+//     {
+//         for (auto i = logList.begin(); i != logList.end(); i++)
+//         {
+//             if (i == currentState)
+//                 cout << "Current state: ";
+//             cout << "[ " << *i << " ] => ";
+//         }
+//         cout << "END_LOG";
+//     }
+// };
+// Note : Normally, when we say a List, we talk about doubly linked list.For implementing a singly linked list, we use forward list.
+
+//                                                                                                              We have include<iostream><list> and using namespace std;
+// For example :
+
+//     Test Result
+//         DataLog log(10);
+// log.save();
+// log.addCurrentState(15);
+// log.save();
+// log.addCurrentState(15);
+// log.undo();
+// log.printLog();
+// [10] = > Current state : [25] = > [40] = > END_LOG
+//                                                DataLog log(10);
+// log.save();
+// log.addCurrentState(15);
+// log.save();
+// log.addCurrentState(15);
+// log.save();
+// log.subtractCurrentState(5);
+// log.printLog();
+// [10] = > [25] = > [40] = > Current state : [35] = > END_LOG
+
+//code to implement
+// DataLog::DataLog()
+// {
+//     /*
+//      * TODO:  add the first state with 0
+//      */
+// }
+
+// DataLog::DataLog(const int &data)
+// {
+//     /*
+//      * TODO:  add the first state with data
+//      */
+// }
+
+// void DataLog::addCurrentState(int number)
+// {
+//     /*
+//      * TODO: Increase the value of current state by number
+//      */
+// }
+
+// void DataLog::subtractCurrentState(int number)
+// {
+//     /*
+//      * TODO: Decrease the value of current state by number
+//      */
+// }
+
+// void DataLog::save()
+// {
+//     /*
+//      * TODO: This function will create a new state, copy the data of the currentState
+//      *       and move the currentState Iterator to this new state. If there are other states behind the
+//      *       currentState Iterator, we delete them all before creating a new state.
+//      */
+// }
+
+// void DataLog::undo()
+// {
+//     /*
+//      * TODO: Switch to the previous state of the data
+//      *       If this is the oldest state in the log, nothing changes
+//      */
+// }
+
+// void DataLog::redo()
+// {
+//     /*
+//      * TODO: Switch to the latter state of the data
+//      *       If this is the latest state in the log, nothing changes
+//      */
+// }
+
+
+//exercise 5
+// Given the head of a doubly linked list, two positive integer a and b where a <= b.Reverse the nodes of the list from position a to position b and return the reversed list
+
+//                                                                                     Note : the position of the first node is 1. It is guaranteed that a and
+//                                             b are valid positions.You MUST NOT change the val attribute in each node.
+
+//                                             struct ListNode
+// {
+//     int val;
+//     ListNode *left;
+//     ListNode *right;
+//     ListNode(int x = 0, ListNode *l = nullptr, ListNode *r = nullptr) : val(x), left(l), right(r) {}
+// };
+
+// Constraint : 1 <= list.length <= 10 ^ 5 0 <= node.val <= 5000 1 <= left <= right <= list.length
+
+//                                                                                         Example 1 : Input : list = {3, 4, 5, 6, 7},
+//                                                                                                             a = 2, b = 4 Output : 3 6 5 4 7
+
+//                                                                                                                    Example 2 : Input : list = {8, 9, 10},
+//                                                                                                             a = 1, b = 3 Output : 10 9 8
+
+//                                                                                                                    For example :
+
+//     Test Input Result int size;
+// cin >> size;
+// int *list = new int[size];
+// for (int i = 0; i < size; i++)
+// {
+//     cin >> list[i];
+// }
+// int a, b;
+// cin >> a >> b;
+// unordered_map<ListNode *, int> nodeValue;
+// ListNode *head = init(list, size, nodeValue);
+// ListNode *reversed = reverse(head, a, b);
+// try
+// {
+//     printList(reversed, nodeValue);
+// }
+// catch (char const *err)
+// {
+//     cout << err << '\n';
+// }
+// freeMem(head);
+// delete[] list;
+// 5 3 4 5 6 7 2 4 3 6 5 4 7 int size;
+// cin >> size;
+// int *list = new int[size];
+// for (int i = 0; i < size; i++)
+// {
+//     cin >> list[i];
+// }
+// int a, b;
+// cin >> a >> b;
+// unordered_map<ListNode *, int> nodeValue;
+// ListNode *head = init(list, size, nodeValue);
+// ListNode *reversed = reverse(head, a, b);
+// try
+// {
+//     printList(reversed, nodeValue);
+// }
+// catch (char const *err)
+// {
+//     cout << err << '\n';
+// }
+// freeMem(head);
+// delete[] list;
+// 3 8 9 10 1 3 10 9 8
+
+
+//code to implement
+/*
+struct ListNode {
+    int val;
+    ListNode *left;
+    ListNode *right;
+    ListNode(int x = 0, ListNode *l = nullptr, ListNode* r = nullptr) : val(x), left(l), right(r) {}
+};
+*/
+
+// ListNode *reverse(ListNode *head, int a, int b)
+// {
+//     / To Do
+// }
